@@ -1,0 +1,28 @@
+create table ratings (
+  id int auto_increment primary key,
+  professor_name varchar(255),
+  professor_school varchar(255),
+  username varchar(255),
+  rating_date datetime,
+  rating_value tinyint
+);
+
+create table accounts (
+  id int auto_increment primary key,
+  username varchar(255) unique,
+  email varchar(255) unique,        
+  password varchar(255),
+  admin bool                        
+);
+
+-- insert an admin user account manually
+insert into accounts (username, email, password, admin) values
+('admin', 'admin@admin.com', 'admin', true);
+
+
+
+insert into ratings (professor_name, professor_school, username, rating_date, rating_value) values
+('Dr. John Smith', 'Grass University', 'user123', '$currDate', 4),
+('Bob Shaker', 'Waters University', 'user246',  '$currDate', 2),
+('Jules Sir Motherboard', 'Computer University', 'user369',  '$currDate', 5),
+('Flameo Hotman', 'Fire University', 'user4812',  '$currDate', 5);

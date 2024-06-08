@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Raleway&family=Roboto&display=swap');
+
+:root {
+  --border-radius: 20px;
+  --content-container-width: min(90%, 1000px); 
+  --h3-font-size: 2rem;
+}
+
+*::after, *::before, * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* padding: 1em; */
+  font-family: 'Roboto', sans-serif;
+
+  /* background-color: tomato; */
+  /* border: 1px solid black; */
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas: 
+  "header header header header"
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "main main main main" 
+  "footer footer footer footer";
+
+  position: relative;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  /* background-color: tomato; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 1em;
+  margin-top: 5em;
+
+  font-size: .75rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 0 10px grey;
+  padding: 1.5em 3em;
+}
+
+.login-link,
+.admin_page-link {
+  text-decoration: none;
+  color: grey;
+  font-size: 1rem;
+}
+
+.login-link:hover,
+.admin_page-link:hover {
+  color: black;
+}
+
+.logout-button,
+.signup-button {
+  padding: .5em 1.5em;
+  font-size: 1rem;
+  border-radius: 25px;
+  background-color: rgb(44, 178, 32);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.logout-button:hover,
+.signup-button:hover {
+  background-color: rgb(183, 50, 50);
+}
+
+
+.home {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  /* font-weight: bold; */
+}
+
+.home:hover {
+  color: rgb(44, 178, 32);
+}
+
+
+.results-notice {
+  font-style: italic;
+}
+
+.ratings_list-wrapper {
+  width: var(--content-container-width);
+  margin: 0 auto;
+  margin-top: 2em;
+
+}
+
+.ratings_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+
+.ratings_list-item {
+  border: 1px solid rgb(151, 151, 151);
+  padding: 1em;
+
+  display: flex;
+  gap: 1em;
+}
+
+.ratings_list-content {
+  /* display: flex;
+  flex-direction: column;
+  gap: .25em; */
+  
+}
+
+.ratings_list-rating {
+  /* padding: .25em; */
+  border: 1px solid black;
+  text-align: center;
+}
+
+.ratings_list-rating_value {
+  background-color: rgb(44, 178, 32);
+  padding: .75em 1.1em;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.rating_action-buttons {
+  display: flex;
+  gap: .5em;
+  margin-top: .75em;
+
+}
+
+.ratings_list_view-button,
+.edit_rating-button,
+.delete_rating-button {
+  cursor: pointer;
+  padding: .25em 1em;
+}
+
+.rating_view-wrapper {
+  width: var(--content-container-width);
+  margin: 0 auto;
+}
+
+.rating_view {
+  border: 1px solid grey;
+  padding: 1em;
+}
+
+dialog[id^="delete_modal_"] {
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.266);
+
+  border: none;
+  position: fixed;
+}
+
+dialog[id^="delete_modal_"] div {
+  background-color: rgb(255, 255, 255);
+  padding: 2em;
+  margin: 35vh auto;
+  border: 1px solid grey;
+  border-radius: 20px;
+
+  width: min(90%, 600px);
+}
+
+.success-msg {
+  color: rgb(13, 190, 13);
+}
+
+.error-msg {
+  color: rgb(214, 56, 29);
+}
+
+.rating_form-errmsgs, 
+.login_errmsg-wrapper, 
+.signup_errmsg-wrapper {
+  color: rgb(214, 56, 29);
+}
+
+li {
+  list-style: none;
+}
+
+
+.signup-form, 
+.login-form {
+  /* box-shadow: 0 0 10px #aaa; */
+  border-radius: var(--border-radius);
+  padding: 2.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  width: min(80%, 500px);
+  margin: 0 auto;
+}
+
+.signup_form-wrapper {
+  width: var(--content-container-width);
+  margin: 0 auto;
+}
+
+.signup-form >*, 
+.login-form >* {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.signup-form >* input,
+.login-form >* input {
+  height: 25px;
+  font-size: 1rem;
+  padding: .25em;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+
+
+.signup-submit,
+.login-submit {
+  padding: .5em 2em;
+  align-self: center;
+  margin-top: 2.5em;
+}
+
+.signup-form h3,
+.login-form h3 {
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: var(--h3-font-size);
+}
+
+
+.index-page {
+  /* border: 1px solid black; */
+  width: var(--content-container-width);
+  margin: 0 auto;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.search_bar-form {
+  /* border: 1px solid orange; */
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* width: 100%; */
+}
+
+.search_bar-form h3 {
+  font-size: var(--h3-font-size);
+}
+
+.search_bar-wrapper {
+  /* border: 1px solid tomato; */
+  width: 100%;
+
+  display: flex;
+  gap: .25em;
+  justify-content: center;
+}
+
+.search-input {
+  width: 50%;
+  padding: .25em .5em;
+}
+
+.search-button {
+  padding: .25em 1em;
+  cursor: pointer;
+}
+
+.results_buttons {
+  display: flex;
+  gap: .5em;
+}
+
+.index-buttons {
+  display: flex;
+  gap: .5em;
+}
+
+.index-buttons >* button {
+  padding: .25em 1em;
+  cursor: pointer;
+}
+
+
+
+
+.rating_form-wrapper {
+  width: var(--content-container-width);
+  margin: 0 auto;
+}
+
+.rating_form {
+  border: 1px solid grey;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  align-items: center;
+}
+
+.rating_form_field {
+  display: flex;
+  flex-direction: column;
+  gap: .25em;
+
+  width: 100%;
+}
+
+.rating_form_select {
+  align-self: start;
+}
+
+.rating_form_submit-button {
+  cursor: pointer;
+  padding: .25em 1em;
+}
+
+
+
+
+
+.users_list-wrapper {
+  width: var(--content-container-width);
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.user {
+  border: 1px solid grey;
+  padding: 1em;
+  
+}
+
+.user_id {
+  font-weight: bold;
+}
+
+.user_view-button {
+  cursor: pointer;
+}
+
+.user_ratings_action-button {
+  display: flex;
+  gap: .25em;
+}
+
+div[id^="user_ratings-wrapper"] {
+  
+  padding-left: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+div[id^="user_ratings-wrapper"] >* {
+  border: 1px solid rgb(192, 192, 192);
+  box-shadow: 0 3px 5px rgb(168, 168, 168);
+  padding: .5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
